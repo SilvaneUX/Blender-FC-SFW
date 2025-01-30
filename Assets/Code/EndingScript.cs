@@ -26,6 +26,7 @@ public class EndingScript : MonoBehaviour
 
     IEnumerator BubblePanel()
     {
+        MusikGame.Instance.Play("bgm", 0);
         yield return new WaitForSeconds(5);
         panel[0].SetActive(true);
         scorePanel[0].text = StaticScore.Instance.score.ToString();
@@ -33,6 +34,7 @@ public class EndingScript : MonoBehaviour
     }
     IEnumerator AmpasPanel()
     {
+        MusikGame.Instance.Play("bgm", 0);
         yield return new WaitForSeconds(5);
         panel[1].SetActive(true);
         scorePanel[1].text = StaticScore.Instance.score.ToString();
@@ -40,10 +42,11 @@ public class EndingScript : MonoBehaviour
     }
     IEnumerator CepiritPanel()
     {
+        MusikGame.Instance.Play("bgm", 0);
         yield return new WaitForSeconds(5);
         panel[2].SetActive(true);
         scorePanel[2].text = StaticScore.Instance.score.ToString();
-        MusikGame.Instance.Play("ResultSFX", 1);
+        MusikGame.Instance.Play("cepiritpopup", 1);
     }
 
     void StartEnding()
@@ -54,6 +57,7 @@ public class EndingScript : MonoBehaviour
         GameObject particle2;
         if (StaticScore.Instance.score > 80)
         {
+            MusikGame.Instance.Play("bgm", 0);
             MusikGame.Instance.Play("BubbleSFX", 1);
             particle = Instantiate(bubbleParticle[0], swimmer.transform.position, Quaternion.identity, swimmer);
             particle.transform.eulerAngles = new Vector3(0, 90, 0);
@@ -62,6 +66,7 @@ public class EndingScript : MonoBehaviour
         }
         else if (StaticScore.Instance.score < 81 && StaticScore.Instance.score >= 65)
         {
+            MusikGame.Instance.Play("bgm", 0);
             MusikGame.Instance.Play("BerampasSFX", 1);
             particle = Instantiate(bubbleParticle[1], swimmer.transform.position, Quaternion.identity, swimmer);
             particle.transform.eulerAngles = new Vector3(0, 90, 0);
@@ -70,6 +75,7 @@ public class EndingScript : MonoBehaviour
         }
         else
         {
+            MusikGame.Instance.Play("bgm", 0);
             MusikGame.Instance.Play("CepiritSFX", 1);
             particle2 = Instantiate(pupParticle, swimmer.transform.position, Quaternion.identity, swimmer);
             particle2.transform.eulerAngles = new Vector3(0, 90, 0);
